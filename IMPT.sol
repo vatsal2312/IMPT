@@ -263,6 +263,8 @@ contract BEP20Token is BEP20("IMPT", "IMPT", 18) {
         uint256 token_rate;
     }
     
+    Privatesale[1] public privatesales;
+
     constructor() {
         /*
         *_____________________________________________
@@ -372,7 +374,7 @@ contract BEP20Token is BEP20("IMPT", "IMPT", 18) {
             
              // Privatesale Minting.
             for(uint i=0; i < privatesales.length; i++){
-                uint256 total_privatesale_mint = ((_supply*privatesale[i].share_percent) / 100);
+                uint256 total_privatesale_mint = ((_supply*privatesales[i].share_percent) / 100);
                 _mint(privatesales[i].privatesale_fund_address, total_privatesale_mint);
             }
             
